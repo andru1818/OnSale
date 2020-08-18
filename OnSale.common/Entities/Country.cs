@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using OnSale.Common.Entities;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Xunit;
 
 namespace OnSale.common.Entities
@@ -10,5 +13,11 @@ namespace OnSale.common.Entities
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }
+
+        public ICollection<Department> Departments { get; set; }
+
+        [DisplayName("Departments Number")]
+        public int DepartmentsNumber => Departments == null ? 0 : Departments.Count;
+
     }
 }
