@@ -71,12 +71,12 @@ namespace OnSale.Web.Controllers
                     {
                         ModelState.AddModelError(string.Empty, dbUpdateException.InnerException.Message);
                     }
+                }
+                catch (Exception exception)
+                {
+                    ModelState.AddModelError(string.Empty, exception.Message);
+                }
             }
-            catch (Exception exception)
-            {
-                ModelState.AddModelError(string.Empty, exception.Message);
-            }
-        }
             return View(country);
         }
 
